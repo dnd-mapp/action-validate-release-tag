@@ -1,9 +1,21 @@
-# @dnd-mapp/project-template
+# action-validate-release-tag
 
-Scaffold repo for new `dnd-mapp` repos (Angular apps, NestJS services, plain TypeScript/Node projects, and GitHub Actions), carrying the org's shared tooling and process conventions, not product code.
+A reusable composite GitHub Action that validates a pushed release tag before a consuming repo creates a GitHub Release from it.
 
 ## Language
 
-**Template repository**:  
-GitHub's own feature (`Settings → Template repository`), which gives a repo a **Use this template** button. Clicking it copies the repo's current file tree into a new repo, as a plain, one-time file copy: no git history, and no variable substitution of any kind. Renaming placeholder values (package name, badge URLs, etc.) in a newly generated repo is a manual step, see the checklist in [README.md](README.md#using-this-template).  
-_Avoid_: "scaffolding tool" or "generator" for this mechanism, those imply prompt-driven variable substitution (e.g. Copier, Cookiecutter, Yeoman), which this repo deliberately does not use, see [ADR 0001](docs/adr/0001-github-native-template-repository.md).
+**Release tag**:  
+The pushed tag ref this action validates (e.g. `v1.2.3`), read from `GITHUB_REF_NAME`. Its name, stripped of the leading `v`, is expected to equal the package version.  
+_Avoid_: "tag" alone, always qualify as "release tag" or "tagged commit" depending on which you mean.
+
+**Tagged commit**:  
+The commit the release tag points at, read from `GITHUB_SHA`. The reachability check is about this commit, not the release tag's name.  
+_Avoid_: conflating with "release tag", a name and the commit it points at are checked independently and can each be invalid on their own.
+
+**Package version**:  
+The `version` field read from the consumer repo's checked-out `package.json`, the repo this action runs against, not this action's own `package.json`.  
+_Avoid_: "release version", that implies it's derived from the release tag rather than being the independent value the tag is checked against.
+
+**Reachable**:  
+Said of a tagged commit that is an ancestor of `origin/main`, meaning it was merged into `main` before being tagged, as opposed to a commit tagged on an unmerged branch.  
+_Avoid_: "valid"/"verified" for this specific property, those describe the release tag as a whole, after both checks pass.
