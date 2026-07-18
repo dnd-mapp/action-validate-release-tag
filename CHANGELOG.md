@@ -11,3 +11,5 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 ### Added
 
 - Validate a pushed release tag: check that its commit is reachable from `main`, and that the tag (stripped of its leading `v`) matches `package.json`'s `version` field.
+
+[1.0.0]: https://github.com/dnd-mapp/action-validate-release-tag/releases/tag/v1.0.0
