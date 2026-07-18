@@ -1,0 +1,20 @@
+name: Validate release tag
+
+description: >
+    Validates a pushed release tag: checks that its commit is reachable from `main`, and that
+    the tag (stripped of its leading `v`) matches `package.json`'s `version` field.
+
+runs:
+    using: composite
+    steps:
+        - name: Fetch main
+          shell: bash
+          run: git fetch origin main
+
+        - name: Verify tag is reachable from main
+          shell: bash
+          run: node "${{ github.action_path }}/dist/verify-tag-reachable.js"
+
+        - name: Verify tag matches package version
+          shell: bash
+          run: node "${{ github.action_path }}/dist/verify-tag-version.js"

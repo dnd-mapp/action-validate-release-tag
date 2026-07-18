@@ -1,7 +1,10 @@
 # Dependency Resolution
 minimumReleaseAge: 4320
+minimumReleaseAgeExclude:
+  - '@dnd-mapp/*'
+minimumReleaseAgeStrict: true
 trustPolicy: no-downgrade
-trustPolicyExclude: '4320'
+trustPolicyIgnoreAfter: 4320
 
 # CLI Settings
 engineStrict: true

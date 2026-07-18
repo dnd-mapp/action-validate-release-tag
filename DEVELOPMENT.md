@@ -1,7 +1,6 @@
 # Development
 
-How to work on this repository day-to-day. For how to propose a change, see the org-wide
-[CONTRIBUTING.md](https://github.com/dnd-mapp/.github/blob/main/CONTRIBUTING.md).
+How to work on this repository day-to-day. For how to propose a change, see the org-wide [CONTRIBUTING.md](https://github.com/dnd-mapp/.github/blob/main/CONTRIBUTING.md).
 
 ## Requirements
 
@@ -14,11 +13,13 @@ How to work on this repository day-to-day. For how to propose a change, see the 
 pnpm i
 ```
 
-This also installs the [Husky](https://typicode.github.io/husky) git hooks: `lint-staged` runs Prettier/markdownlint
-on staged files before each commit, and `commitlint` checks each commit message follows
-[Conventional Commits](https://www.conventionalcommits.org).
+This also installs the [Husky](https://typicode.github.io/husky) git hooks: `lint-staged` runs Prettier/markdownlint on staged files before each commit, and `commitlint` checks each commit message follows [Conventional Commits](https://www.conventionalcommits.org).
 
 ## Common tasks
 
+- `pnpm build` (compile `src/` to `dist/`)
+- `pnpm test` (run tests in watch mode, with the Vitest UI)
+- `pnpm test-ci` (run tests once, with coverage)
+- `pnpm typecheck` (type-check `src/` without emitting)
 - `pnpm format` / `pnpm format-check` (format, or check formatting, of the whole repo with Prettier)
 - `pnpm lint-md` (lint all Markdown files)
