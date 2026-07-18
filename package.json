@@ -17,7 +17,7 @@
     "format": "prettier -w .",
     "format-check": "prettier -l .",
     "build": "tsc -p tsconfig.build.json",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "tsc --noEmit -p tsconfig.build.json && tsc --noEmit -p tsconfig.spec.json",
     "test": "vitest --ui",
     "test-ci": "vitest run"
   },

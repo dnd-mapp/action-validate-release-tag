@@ -1,8 +1,5 @@
 {
     "$schema": "https://json.schemastore.org/tsconfig",
     "extends": "@dnd-mapp/tsconfig/configs/node.json",
-    "include": ["src/**/*.ts"],
-    "compilerOptions": {
-        "types": ["@types/node", "vitest/globals"]
-    }
+    "include": ["src/**/*.ts"]
 }
