@@ -1,7 +1,7 @@
 {
   "name": "action-validate-release-tag",
   "description": "Reusable GitHub Action to validate a pushed release tag against main and package.json",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "private": true,
   "license": "MIT",
   "author": "NoNamer777",
