@@ -6,9 +6,13 @@
 !*.yaml
 !*.yml
 !*.mjs
+!*.ts
 
 pnpm-lock.yaml
 node_modules/
 dist/
+
+coverage/
+reports/
 
 .idea/
