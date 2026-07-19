@@ -13,8 +13,12 @@ runs:
 
         - name: Verify tag is reachable from main
           shell: bash
-          run: node "${{ github.action_path }}/dist/verify-tag-reachable.js"
+          env:
+              ACTION_PATH: ${{ github.action_path }}
+          run: node "$ACTION_PATH/dist/verify-tag-reachable.js"
 
         - name: Verify tag matches package version
           shell: bash
-          run: node "${{ github.action_path }}/dist/verify-tag-version.js"
+          env:
+              ACTION_PATH: ${{ github.action_path }}
+          run: node "$ACTION_PATH/dist/verify-tag-version.js"
