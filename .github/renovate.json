@@ -15,6 +15,14 @@
         "automerge": false,
         "schedule": ["at any time"]
     },
+    "hostRules": [
+        {
+            "description": "Read access to the private @dnd-mapp scope on GitHub Package Registry, via a dedicated machine account (GitHub App tokens aren't accepted by npm.pkg.github.com)",
+            "matchHost": "npm.pkg.github.com",
+            "hostType": "npm",
+            "token": "{{ secrets.NODE_AUTH_TOKEN }}"
+        }
+    ],
     "packageRules": [
         {
             "description": "peerDependencies are a deliberate support-range decision, not routine maintenance",
